@@ -17,6 +17,7 @@ public class BuildingDM {
     
     public BuildingDM() throws SQLException, ClassNotFoundException{
         Connector connect = new Connector();
+     
        conn = (Connection) connect.getConnection();
     }
 }
