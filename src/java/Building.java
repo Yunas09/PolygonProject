@@ -9,6 +9,10 @@
  * @author Yuyu
  */
 public class Building {
+
+    Building(String Building_Name, String Building_Adress, int Building_No, int Building_Size, int Building_cond) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     @Override
     public String toString() {
         return "Building{" + "Building_Name=" + Building_Name + ", Building_Adress=" + Building_Adress + ", Building_No=" + Building_No + ", Building_Size=" + Building_Size + ",Building_cond=" + Building_cond + '}';

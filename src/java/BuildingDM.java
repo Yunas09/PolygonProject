@@ -25,7 +25,7 @@ public class BuildingDM {
     }
 
     public ArrayList<Building> BuildingDM(Connection con) throws SQLException {
-        ArrayList Building = new Building();
+        ArrayList Building = new ArrayList();
 
         Statement stmt = null;
         String query = "select * from Building_Name";
@@ -35,7 +35,7 @@ public class BuildingDM {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
 
-                String Building_Name = rs.getInt("Building_Name");
+                String Building_Name = rs.getString("Building_Name");
                 String Building_Adress = rs.getString("Building_Adress");
                 int Building_No = rs.getInt("Building_No");
                 int Building_Size = rs.getInt("Building_Size");
