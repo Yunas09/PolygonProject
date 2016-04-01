@@ -20,7 +20,7 @@ public class Connector {
     static final int PORT = 3306;
     static final String DATABASE = "polygon1";
     static String USERNAME = "root";
-    static String PASSWORD = "Yunasyunas09";
+    static String PASSWORD = "Ua123459876";
     static String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
     private Connection Connection;
 
