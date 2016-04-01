@@ -23,6 +23,8 @@ public class BuildingDM {
         conn = (Connection) connect.getConnection();
 
     }
+     
+   
 
     public ArrayList<Building> BuildingDM(Connection con) throws SQLException {
         ArrayList Building = new ArrayList();
@@ -42,8 +44,8 @@ public class BuildingDM {
                 int Building_cond = rs.getInt("Building_cond");
                 Building.add(new Building(Building_Name, Building_Adress, Building_No, Building_Size, Building_cond));
 //                System.out.println(
-//                        Player_pos + "\t" + Player_num + "\t"
-//                        + teamID + "\t" + Player_name);
+//                        Building_Name + "\t" + Building_Adress + "\t"
+//                        + Building_No + "\t" + Building_Size);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -52,6 +54,7 @@ public class BuildingDM {
                 stmt.close();
 
             }
+            
             System.out.println(Building);
         }
         return null;
