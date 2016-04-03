@@ -1,4 +1,6 @@
-package Controller;
+
+
+
 
 
 import java.sql.Connection;
@@ -18,12 +20,12 @@ import java.sql.Statement;
  * @author Yuyu
  */
 public class Connector {
-    static final String HOST = "Localhost";
-    static final int PORT = 3306;
-    static final String DATABASE = "polygon1";
-    static String USERNAME = "root";
-    static String PASSWORD = "Yunasyunas09";
-    static String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
+    private final String HOST = "Localhost";
+    private final int PORT = 3306;
+    private final String DATABASE = "polygon1";
+    private String USERNAME = "root";
+    private String PASSWORD = "Yunasyunas09";
+    private String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
     private Connection Connection;
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
@@ -38,9 +40,9 @@ public class Connector {
         } catch (Exception ex) {
 
         } finally {
-            Connection con = null;
-            con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            return con;
+            Connection conn = null;
+            conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            return conn;
         }
 
     }
