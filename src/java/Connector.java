@@ -24,7 +24,7 @@ public class Connector {
     private final int PORT = 3306;
     private final String DATABASE = "polygon1";
     private String USERNAME = "root";
-    private String PASSWORD = "Yunasyunas09";
+    private String PASSWORD = "Ua123459876";
     private String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
     private Connection Connection;
 
