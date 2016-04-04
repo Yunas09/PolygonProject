@@ -1,4 +1,4 @@
-package model;
+package DM;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;

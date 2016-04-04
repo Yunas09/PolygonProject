@@ -1,11 +1,11 @@
-package model;
+package DM;
 
 
 
 
 
 import Controller.Connector;
-import model.Building;
+import DM.Building;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 import java.sql.ResultSet;
