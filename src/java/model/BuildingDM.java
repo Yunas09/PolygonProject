@@ -1,12 +1,17 @@
+package model;
 
 
 
 
+
+import Controller.Connector;
+import model.Building;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import Controller.Connector;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

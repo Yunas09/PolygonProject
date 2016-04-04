@@ -1,3 +1,5 @@
+package model;
+
 
 
 
@@ -61,11 +63,11 @@ public class Building {
     public void setBuilding_cond(int Building_cond) {
         this.Building_cond = Building_cond;
     }
-    private String Building_Name;
-    private String Building_Adress;
-    private int Building_No;
-    private int Building_Size;
-    private int Building_cond;
+    public String Building_Name;
+    public String Building_Adress;
+    public int Building_No;
+    public int Building_Size;
+    public int Building_cond;
     
     
 }
