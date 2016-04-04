@@ -12,9 +12,14 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Welcome to Polygon</h1>
         <form>
-            <input type="text" name="Building_Name" value="" />   
+             Username
+            <input type="text" name="Username" value="" />   
+            Password
+            <input type="password" name="Password" value="" />
+            
+            <input type="submit" value="Login" name="Submit" />
             
         </form>
     </body>
