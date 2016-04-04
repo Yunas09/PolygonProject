@@ -19,11 +19,10 @@ import java.util.ArrayList;
  */
 public class BuildingDM {
 
-    Connection conn;
+    
 
     public BuildingDM() throws SQLException, ClassNotFoundException {
-        Connector connect = new Connector();
-        conn = (Connection) connect.getConnection();
+        Connector c = new Connector();
 
     }
      
