@@ -24,9 +24,9 @@ import java.sql.Statement;
 public class Connector {
     private final String HOST     = "Localhost";
     private final int    PORT     = 3306;
-    private final String DATABASE = "Polygon";
+    private final String DATABASE = "Polygon1";
     private final String USERNAME = "root"; 
-    private final String PASSWORD = "";
+    private final String PASSWORD = "Yunasyunas09";
     private Connection connection;
     
     public Connector() throws SQLException, ClassNotFoundException{

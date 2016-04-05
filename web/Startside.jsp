@@ -20,7 +20,9 @@
         <h1>Welcome to Polygon</h1>
         <form>
              <form action="Login" method="GET">
-            <p>Username:</p>
+            <p>Username:
+                <input type ="text" name="username"
+            </p>
             <select name="username">
                 <% 
                    UserDM DM = new UserDM();
@@ -33,7 +35,7 @@
                 %>
             </select>
             <p>Password:</p>
-            <input type="text" name="password" value="1234"/>
+            <input type="text" name="password" value=""/>
             <br>
             <input type="submit" value="Login"/>
         </form>

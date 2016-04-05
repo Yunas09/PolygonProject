@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
         if (user.getPassword().equals(password)) {
             session.setAttribute("user", user);
             
-            forward(request, response, "Startside.jsp");
+            forward(request, response, "HomePage.jsp");
         } else {
             forward(request, response, "index.html");
         }
