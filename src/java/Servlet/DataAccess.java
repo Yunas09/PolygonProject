@@ -22,7 +22,7 @@ public class DataAccess{
   
 public User getUser(String username) throws SQLException
 {
-    PreparedStatement prep = con.prepareStatement("SELECT * from user WHERE username = ?;");
+    PreparedStatement prep = con.prepareStatement("SELECT * from logindetails WHERE username = ?;");
     
     prep.setString(1, username);
     ResultSet rs = prep.executeQuery();
@@ -47,28 +47,5 @@ public boolean verifyUser(String username, String password)
     }
     return temp.getUsername().equals(username) && temp.getPassword().equals(password);
 }
-public static boolean checkUser(String user,String pass) 
-     {
-      boolean st =false;
-      try{
 
-	 //loading drivers for mysql
-         Class.forName("com.mysql.jdbc.Driver");
-
- 	 //creating connection with the database 
-         Connection con=(Connection) DriverManager.getConnection
-                        ("jdbc:mysql://localhost:3306/test","root","studytonight");
-         PreparedStatement ps =con.prepareStatement
-                             ("select * from logindetail where username=? and password=?");
-         ps.setString(1, user);
-         ps.setString(2, pass);
-         ResultSet rs =ps.executeQuery();
-         st = rs.next();
-        
-      }catch(Exception e)
-      {
-          e.printStackTrace();
-      }
-         return st;                 
-  }   
 }
