@@ -22,7 +22,7 @@ public class DataAccess{
   
 public User getUser(String username) throws SQLException
 {
-    PreparedStatement prep = con.prepareStatement("SELECT * from logindetails WHERE username = ?;");
+    PreparedStatement prep = con.prepareStatement("SELECT * fom logindetails WHERE username = ?;");
     
     prep.setString(1, username);
     ResultSet rs = prep.executeQuery();
