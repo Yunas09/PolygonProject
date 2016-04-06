@@ -8,6 +8,6 @@
  *
  * @author Yuyu
  */
-public class DataMapper {
+public class Validate {
     
 }

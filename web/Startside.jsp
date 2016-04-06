@@ -18,26 +18,17 @@
     </head>
     <body>
         <h1>Welcome to Polygon</h1>
-        <form>
-             <form action="Login" method="GET">
-            <p>Username:
-                <input type ="text" name="username"
+        <form action="login" method="post">
+
+            <p>username:<p>
+                <input type ="text" name="username" value=""
             </p>
-            <select name="username">
-                <% 
-                   UserDM DM = new UserDM();
-                    ArrayList<User> users = DM.getUsers();
-                    for(User user : users){
-                        out.print("<option value='" + user.getUsername()+ "'>");
-                        out.print(user.getUsername());
-                        out.println("</option>");
-                    }
-                %>
-            </select>
-            <p>Password:</p>
-            <input type="text" name="password" value=""/>
+            
+            <p>password:</p>
+            <input type="password" name="password" value="" />
             <br>
-            <input type="submit" value="Login"/>
+            <input type="submit" name="do_this" value="login"/>
+
         </form>
     </body>
 </html>

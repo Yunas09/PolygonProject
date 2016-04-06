@@ -12,34 +12,34 @@ package DM;
  */
 public class User {
 
-    private String username;
-    private String password;
+    private String userName;
+    private String passWord;
     
-     public User(String username, String password) {
-        this.username = username;
-        this.password = password;
+     public User(String userName, String passWord) {
+        this.userName = userName;
+        this.passWord = passWord;
 
     }
 
     public String getUsername() {
-        return username;
+        return userName;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.userName = userName;
     }
 
     public String getPassword() {
-        return password;
+        return passWord;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.passWord = password;
     }
 
    
      @Override
     public String toString() {
-        return "User{" + "username=" + username + ", password=" + password+ '}';
+        return "User{" + "userName=" + userName + ", passWord=" + passWord+ '}';
     }
 }
