@@ -29,7 +29,7 @@
             <input type="password" name="password" value="" />
             <br>
             <input type="submit" name="do_this" value="login"/>
-    </center>
+    
 </form>
 </body>
 </html>
