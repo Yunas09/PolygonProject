@@ -39,7 +39,7 @@ public class Connector {
         connection = DriverManager.getConnection(url, USERNAME, PASSWORD);
     }
     
-    public ResultSet doQuery(String query) throws SQLException{
+     public ResultSet doQuery(String query) throws SQLException{
         System.out.println("*********"+query);
         Statement stmt = connection.createStatement();
         ResultSet res = stmt.executeQuery(query);

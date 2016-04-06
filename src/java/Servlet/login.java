@@ -5,6 +5,8 @@
  */
 package Servlet;
 
+import DM.User;
+import DM.UserDM;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -28,6 +30,7 @@ import javax.servlet.http.HttpSession;
 public class login extends HttpServlet {
 
     DataAccess DA;
+    UserDM DMA;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -46,30 +49,20 @@ public class login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String do_this = request.getParameter("do_this");
 
-        switch (do_this) {
-            case "login":
-                String username = request.getParameter("username");
-                String password = request.getParameter("password");
-                session.setAttribute("username", username);
-                session.setAttribute("password", password);
-
-                if (DA.verifyUser(username, password)) {
-                    session.setAttribute("username", username);
-
-                    forward(request, response, "/HomePage.jsp");
-
-                }
-                forward(request, response, "/HomePage.jsp");
-                break;
-            case "getuser":
-
-                String userName = request.getParameter("userName");
-
-                session.setAttribute("userName", userName);
-                break;
-        }
-        {
-            forward(request, response, "/index.html");
+      
+        
+        
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        UserDM DM = new UserDM();
+        User user = DM.getUser(username);
+        
+        if(user.getPassword().equals(password)){
+            session.setAttribute("user", user);
+            
+            forward(request, response, "/HomePage.jsp");
+        } else {
+            forward(request, response, "/Startside.jsp");
         }
     }
 

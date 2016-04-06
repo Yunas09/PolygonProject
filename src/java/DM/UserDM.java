@@ -13,7 +13,7 @@ public class UserDM {
         ArrayList<User> users = new ArrayList<>();
         try {
             Connector c = new Connector();
-            ResultSet res = c.doQuery("SELECT * FROM user");
+            ResultSet res = c.doQuery("SELECT * FROM logindetails");
             while (res.next()) {
                 String username = res.getString("username");
                 String password = res.getString("password");
@@ -30,7 +30,7 @@ public class UserDM {
         User user = null;
         try {
             Connector c = new Connector();
-            ResultSet res = c.doQuery("SELECT * FROM user WHERE username = '" + username + "'");
+            ResultSet res = c.doQuery("SELECT * FROM logindetails WHERE username = '" + username + "'");
             if (res.next()) {
                 String password = res.getString("password");
 

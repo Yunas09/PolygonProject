@@ -30,7 +30,7 @@ public User getUser(String username) throws SQLException
    return new User(rs.getString(1), rs.getString(2));
 }
 
-public boolean verifyUser(String username, String password)
+public boolean verifyUser(String username, String pw)
 {
     User temp;
     
@@ -45,7 +45,7 @@ public boolean verifyUser(String username, String password)
         
         
     }
-    return temp.getUsername().equals(username) && temp.getPassword().equals(password);
+    return temp.getUsername().equals(username) && temp.getPassword().equals(pw);
 }
 
 }
