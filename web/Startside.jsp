@@ -17,18 +17,19 @@
         <title>JSP Page</title>
     </head>
     <body>
+    <center>
         <h1>Welcome to Polygon</h1>
         <form action="login" method="post">
 
-            <p>username:<p>
+            <p><h2>Username</h2><p>
                 <input type ="text" name="username" value=""
             </p>
-            
-            <p>password:</p>
+
+            <p><h3>Password</h3></p>
             <input type="password" name="password" value="" />
             <br>
             <input type="submit" name="do_this" value="login"/>
-
-        </form>
-    </body>
+    </center>
+</form>
+</body>
 </html>
