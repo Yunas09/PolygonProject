@@ -67,3 +67,14 @@ public class BuildingDM {
         return null;
     }
 }
+    
+//    public Building addBuilding (String Building_Name, String Building_Adress, int Building_No, int Building_Size, int Building_cond ) throws SQLException, ClassNotFoundException
+//    {
+//        
+//        Connector c = new Connector();
+//        
+//    }
+//      
+//}
+    
+

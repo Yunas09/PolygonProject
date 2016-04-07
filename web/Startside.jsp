@@ -31,7 +31,13 @@
             <input type="password" name="password" value="" />
             <br>
             <input type="submit" name="do_this" value="login"/>
+            
+            
     
 </form>
+        <form action="CreateUser.jsp">
+        <p>Create Customer</p>
+            <input type="submit" value="Click Here !!" <a href="/CreateUser.jsp">
+                </form>
 </body>
 </html>
