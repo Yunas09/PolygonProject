@@ -10,8 +10,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,8 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Yuyu
  */
-@WebServlet(name = "Register", urlPatterns = {"/Register"})
-public class Register extends HttpServlet {
+public class CheckReport extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +41,10 @@ public class Register extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Register</title>");            
+            out.println("<title>Servlet ChechReport</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Register at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ChechReport at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -76,15 +77,11 @@ public class Register extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-         PrintWriter out = response.getWriter();
-	
-        String name = request.getParameter("name");
+        PrintWriter out = response.getWriter();
+
         
-        String pass = request.getParameter("pass");
+        String Building_No = request.getParameter("Building_No");
         
-        String Adress = request.getParameter("Adress");
-        
-        String Zip = request.getParameter("Zip");
         try{
         
         //loading drivers for mysql
@@ -95,15 +92,14 @@ public class Register extends HttpServlet {
                      ("jdbc:mysql://localhost:3306/polygon1","root","Yunasyunas09");
 
         PreparedStatement ps=con.prepareStatement
-                  ("insert into logindetails values(?,?,?,?)");
+                  ("select * from reports where Building_No = ?");
 
-        ps.setString(1, name);
+       
         
-        ps.setString(2, pass);
         
-        ps.setString(3, Adress);
+        ps.setString(1, Building_No);
         
-        ps.setString(4, Zip);
+       
         int i=ps.executeUpdate();
         
           if(i>0)
@@ -116,19 +112,20 @@ public class Register extends HttpServlet {
         {
             se.printStackTrace();
         }
-	
-      }
-    
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+    }
 }
+          
+                  
+        
+        
+    
+    
+   
+//    @Override
+//    public String getServletInfo() {
+//        return "Short description";
+//    }// </editor-fold>
+
+
 

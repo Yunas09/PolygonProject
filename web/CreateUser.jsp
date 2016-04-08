@@ -21,9 +21,16 @@
     <body>
         <h1>CreateUser</h1>
         <form method="post" action="Register">
-            Name:<input type="text" name="name" /><br/>
+            <p>Name:<input type="text" name="name" /><br/></p>
 
-            Password:<input type="password" name="pass"  /><br/>
+            <p>Password:<input type="password" name="pass"  /><br/></p>
+            
+            <p>Adress:<input type="Adress" name="Adress"  /><br/></p>
+            
+            <p>Zip:<input type="Zip" name="Zip"  /><br/></p>
+            
+            
+            
             <input type="submit" value="register" />
             
         </form>

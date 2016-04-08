@@ -14,42 +14,46 @@
     <body>
         <h1>Add Building!</h1>
         <form method="post" action="BuildingAdd">
-            
+
             <table border="1">
                 <thead>
                     <tr>
                         <th>Building Name
-        <input type="text" name="Building_Name" value="" /></th>
+                            <input type="text" name="Building_Name" value="" /></th>
                         <th>Building Size
-        <input type="text" name="Building_Size" value="" /></th>
+                            <input type="text" name="Building_Size" value="" /></th>
                         <th> Building Cond
-        <input type="text" name="Building_cond" value="" /></th>
+                            <input type="text" name="Building_cond" value="" /></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Building Adress
-        <input type="text" name="Building_Adress" value="" /></td>
-                        
+                            <input type="text" name="Building_Adress" value="" /></td>
+
                         <td>Building No
-        <input type="text" name="Building_No" value="" /></td>
+                            <input type="text" name="Building_No" value="" /></td>
                     </tr>
                     <tr>
-                        
+
                     </tr>
+
+
                 </tbody>
             </table>
 
+
+<input type="submit" value="Submit" />
+        </form>
         
-        
-        
-        
-        
-        
-        
-        
-       
-        <input type="submit" value="Submit" />
+         
+        <p><h2>Check Building Reports ? </h2></p>
+        <form method="GET" action="CheckReport">
+            Insert Bulding No
+            <input type="text" name="Bno" value="" /> 
+            
+            <input type="submit" value="Check Report" />
+            
         </form>
     </body>
 </html>

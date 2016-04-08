@@ -19,6 +19,7 @@
     <body>
     <center>
         <h1>Welcome to Polygon</h1>
+        
         <form action="login" method="post">
 
             <p><h2>Username</h2><p>
@@ -35,9 +36,26 @@
             
     
 </form>
-        <form action="CreateUser.jsp">
-        <p>Create Customer</p>
-            <input type="submit" value="Click Here !!" <a href="/CreateUser.jsp">
-                </form>
+        <h1>Admin Login </h1>
+        <form action="AdminLogin" method="post">
+
+            <p><h4>Username</h4><p>
+                <input type ="text" name="username" value=""
+                 
+                
+            </p>
+
+            <p><h5>Password</h5></p>
+            <input type="password" name="password" value="" />
+            <br>
+            <input type="submit" name="do_this" value="login"/>
+            
+            
+    
+</form>
+        
+        
+        
+        
 </body>
 </html>
