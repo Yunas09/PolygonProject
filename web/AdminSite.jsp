@@ -32,6 +32,24 @@
             <input type="text" name="Zip" value="" />
         </form>
         
+        <H1>Database Lookup</H1>
+        <FORM ACTION="basic.jsp" METHOD="POST">
+            Please enter the ID of the publisher you want to find:
+            <INPUT TYPE="TEXT" NAME="CustomerName">
+            <BR>
+            Klik Her
+            <INPUT TYPE="Submit" NAME="Tryk">
+            <br>
+            CustomerName
+            <INPUT TYPE="TEXT" NAME="Name">
+            <BR>
+            CustomerAdress
+            <INPUT TYPE="TEXT" Name="Adress">
+            <BR>
+            CustomerZip
+            <INPUT TYPE="TEXT" Name="Zip">
+        </FORM>
+        
         
     </body>
 </html>

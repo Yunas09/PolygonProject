@@ -5,9 +5,9 @@ import com.mysql.jdbc.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import Controller.Connector;
+import DbUtility.Connector;
 import java.sql.PreparedStatement;
-import Controller.Connector;
+import DbUtility.Connector;
 
 
 public class UserDM {

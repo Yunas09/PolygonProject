@@ -16,7 +16,7 @@ public class DataAccess{
         
         public DataAccess() throws SQLException, ClassNotFoundException {
                 
-    Controller.Connector connect = new Controller.Connector();
+    DbUtility.Connector connect = new DbUtility.Connector();
     con = (Connection) connect.getConnection();
    }
   

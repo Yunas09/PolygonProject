@@ -4,14 +4,14 @@ package DM;
 
 
 
-import Controller.Connector;
+import DbUtility.Connector;
 import DM.Building;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import Controller.Connector;
+import DbUtility.Connector;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
