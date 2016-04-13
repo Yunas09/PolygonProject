@@ -47,13 +47,11 @@
         </form>
         
          
-        <p><h2>Check Building Reports ? </h2></p>
-        <form method="GET" action="CheckReport">
-            Insert Bulding No
-            <input type="text" name="Bno" value="" /> 
-            
-            <input type="submit" value="Check Report" />
-            
-        </form>
+        
+           <form action="BuildingSearch.jsp">
+
+<input type="submit" value="Check Building" <a href="/BuildingSearch.jsp">
+    
+           </form>
     </body>
 </html>

@@ -24,11 +24,13 @@
         <servlet-name>GetDataServlet</servlet-name>
         <servlet-class>Servlet.GetDataServlet</servlet-class>
     </servlet>
-   
-   
     <servlet>
         <servlet-name>Search</servlet-name>
         <servlet-class>Servlet.Search</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuildingSearch</servlet-name>
+        <servlet-class>Servlet.BuildingSearch</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -50,12 +52,13 @@
         <servlet-name>AdminLogin</servlet-name>
         <url-pattern>/AdminLogin</url-pattern>
     </servlet-mapping>
-    
-    
-   
     <servlet-mapping>
         <servlet-name>Search</servlet-name>
         <url-pattern>/Search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuildingSearch</servlet-name>
+        <url-pattern>/BuildingSearch</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>Startside.jsp</welcome-file>

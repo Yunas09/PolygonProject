@@ -5,14 +5,14 @@
  */
 package Servlet;
 
-import com.mysql.jdbc.Connection;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Yuyu
  */
-public class CheckReport extends HttpServlet {
+public class BuildingSearch extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +41,10 @@ public class CheckReport extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ChechReport</title>");            
+            out.println("<title>Servlet BuildingSearch</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ChechReport at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet BuildingSearch at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -76,56 +76,62 @@ public class CheckReport extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
         PrintWriter out = response.getWriter();
+        Connection conn = null;
+        String url = "jdbc:mysql://localhost:3306/";
+        String dbName = "polygon1";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "root";
+        String password = "Yunasyunas09";
+ 
+        Statement st;
+        try {
+            Class.forName(driver).newInstance();
+            conn = DriverManager.getConnection(url + dbName, userName, password);
+            System.out.println("Connected!");
+            String pid = request.getParameter("pid");
+ 
+            ArrayList al = null;
+            ArrayList InfoSearch = new ArrayList();
+            String query = "select * from buildinginfo where Building_No='" + pid + "' ";
+ 
+            System.out.println("query " + query);
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+ 
+            while (rs.next()) {
+                al = new ArrayList();
+ 
 
-        
-        String Building_No = request.getParameter("Building_No");
-        
-        try{
-        
-        //loading drivers for mysql
-        Class.forName("com.mysql.jdbc.Driver");
-
-	//creating connection with the database 
-          Connection  con=(Connection) DriverManager.getConnection
-                     ("jdbc:mysql://localhost:3306/polygon1","root","Yunasyunas09");
-
-        PreparedStatement ps=con.prepareStatement
-                  ("select * from reports where Building_No = ?");
-
-       
-        
-        
-        ps.setString(1, Building_No);
-        
-       
-        int i=ps.executeUpdate();
-        
-          if(i>0)
-          {
-            out.println("You are sucessfully registered");
-          }
-        
+                al.add(rs.getString(1));
+                al.add(rs.getString(2));
+                al.add(rs.getString(3));
+                al.add(rs.getString(4));
+                al.add(rs.getString(5));
+                System.out.println("al :: " + al);
+                InfoSearch.add(al);
+            }
+ 
+            request.setAttribute("piList", InfoSearch);
+            RequestDispatcher view = request.getRequestDispatcher("Bui_Search.jsp");
+            view.forward(request, response);
+            conn.close();
+            System.out.println("Disconnected!");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        catch(Exception se)
-        {
-            se.printStackTrace();
-        }
-
     }
+    
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }
-          
-                  
-        
-        
-    
-    
-   
-//    @Override
-//    public String getServletInfo() {
-//        return "Short description";
-//    }// </editor-fold>
-
-
-
