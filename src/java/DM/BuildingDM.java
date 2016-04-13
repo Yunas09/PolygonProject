@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import DbUtility.Connector;
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -65,16 +66,20 @@ public class BuildingDM {
             System.out.println(Building);
         }
         return null;
+
     }
-}
     
-//    public Building addBuilding (String Building_Name, String Building_Adress, int Building_No, int Building_Size, int Building_cond ) throws SQLException, ClassNotFoundException
-//    {
-//        
-//        Connector c = new Connector();
-//        
-//    }
-//      
-//}
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+    
+
     
 

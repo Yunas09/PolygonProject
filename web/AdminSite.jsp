@@ -21,35 +21,34 @@
             <input type="submit" value="Click Here !!" <a href="/CreateUser.jsp">
                 </form>
         
-        <form>
-            Name
-            <input type="text" name="Name" value="" />
-            Password
-            <input type="text" name="Password" value="" />
-            Adress
-            <input type="text" name="Adress" value="" />
-            Zip
-            <input type="text" name="Zip" value="" />
+      
+        
+        <h1>Database Lookup</h1>
+        <form action="index.jsp">
+
+<input type="submit" value="Click Here!!" <a href="/index.jsp">
+</form>
+        
+        
+        <h3>Update BuildingInformation</h3>
+        <form action="MANGLER" method="post">
+        BuildingName
+        <input type="text" name="Building_Name"/>
+       
+        BuildingAdress
+        <input type="text" name="Building_adress"/>
+       
+        BuildingNo
+        <input type="text" name="Building_No"/>
+        
+        BuildingSize
+        <input type="text" name="Building_Size"/>
+        
+        BuildingCond
+        <input type="text" name="Building_cond"/>
+        
+        <input type="submit" value="Change Values"/>
+       
         </form>
-        
-        <H1>Database Lookup</H1>
-        <FORM ACTION="basic.jsp" METHOD="POST">
-            Please enter the ID of the publisher you want to find:
-            <INPUT TYPE="TEXT" NAME="CustomerName">
-            <BR>
-            Klik Her
-            <INPUT TYPE="Submit" NAME="Tryk">
-            <br>
-            CustomerName
-            <INPUT TYPE="TEXT" NAME="Name">
-            <BR>
-            CustomerAdress
-            <INPUT TYPE="TEXT" Name="Adress">
-            <BR>
-            CustomerZip
-            <INPUT TYPE="TEXT" Name="Zip">
-        </FORM>
-        
-        
     </body>
 </html>
