@@ -21,7 +21,7 @@
           <td>: <input  type="text" name="pid" id="pid">
         </td></tr>        
         <tr><td colspan=2 align="center">
-        <input  type="submit" name="submit" value="BuildingSearch"></td></tr>
+        <input  type="submit" name="submit" value="Search For Buidling"></td></tr>
       </table>
     </form>
     </body>

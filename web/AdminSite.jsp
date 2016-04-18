@@ -23,32 +23,13 @@
         
       
         
-        <h1>Database Lookup</h1>
+        <h1>Check Customer</h1>
         <form action="index.jsp">
 
 <input type="submit" value="Click Here!!" <a href="/index.jsp">
 </form>
         
         
-        <h3>Update BuildingInformation</h3>
-        <form action="MANGLER" method="post">
-        BuildingName
-        <input type="text" name="Building_Name"/>
-       
-        BuildingAdress
-        <input type="text" name="Building_adress"/>
-       
-        BuildingNo
-        <input type="text" name="Building_No"/>
         
-        BuildingSize
-        <input type="text" name="Building_Size"/>
-        
-        BuildingCond
-        <input type="text" name="Building_cond"/>
-        
-        <input type="submit" value="Change Values"/>
-       
-        </form>
     </body>
 </html>
