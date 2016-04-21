@@ -5,6 +5,7 @@
  */
 package Servlet;
 
+import DM.CustomerDM;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -41,7 +42,7 @@ public class Search extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Search</title>");            
+            out.println("<title>Servlet Search</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Search at " + request.getContextPath() + "</h1>");
@@ -78,53 +79,31 @@ public class Search extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         PrintWriter out = response.getWriter();
-        Connection conn = null;
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "polygon1";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "Yunasyunas09";
- 
         Statement st;
         try {
-            Class.forName(driver).newInstance();
-            conn = DriverManager.getConnection(url + dbName, userName, password);
-            System.out.println("Connected!");
-            String pid = request.getParameter("pid");
- 
-            ArrayList al = null;
-            ArrayList InfoSearch = new ArrayList();
-            String query = "select * from logindetails where username='" + pid + "' ";
- 
-            System.out.println("query " + query);
-            st = conn.createStatement();
-            ResultSet rs = st.executeQuery(query);
- 
-            while (rs.next()) {
-                al = new ArrayList();
- 
 
-                al.add(rs.getString(1));
-                al.add(rs.getString(2));
-                al.add(rs.getString(3));
-                al.add(rs.getString(4));
- 
-                System.out.println("al :: " + al);
-                InfoSearch.add(al);
-            }
- 
-            request.setAttribute("piList", InfoSearch);
+            String pid = request.getParameter("pid");
+            CustomerDM CusDM = new CustomerDM();
+            ArrayList<String> CustSearch = CusDM.SearchCustomer(pid);
+
+//            String s = "";
+//            for(String str : InfoSearch){
+//                s += str + " -#- ";
+//            }
+            request.setAttribute("poList", CustSearch);
+
             RequestDispatcher view = request.getRequestDispatcher("searchview.jsp");
             view.forward(request, response);
-            conn.close();
+
             System.out.println("Disconnected!");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
- 
-    /** 
+
+    /**
      * Returns a short description of the servlet.
+     *
      * @return a String containing servlet description
      */
     @Override
@@ -132,5 +111,3 @@ public class Search extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 }
-
-

@@ -6,10 +6,14 @@
 package Servlet;
 
 import com.mysql.jdbc.Connection;
+import DM.BuildingDM;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -81,36 +85,18 @@ public class BuildingAdd extends HttpServlet {
         String Building_No = request.getParameter("Building_No");
         String Building_Size = request.getParameter("Building_Size");
         String Building_cond = request.getParameter("Building_cond");
-        try{
-        
-        //loading drivers for mysql
-        Class.forName("com.mysql.jdbc.Driver");
 
-	//creating connection with the database 
-          Connection  con=(Connection) DriverManager.getConnection
-                     ("jdbc:mysql://localhost:3306/polygon1","root","Yunasyunas09");
+        try {
+            BuildingDM Bui = new BuildingDM();
+                   
+           
+            Bui.AddBuilding(Building_Name, Building_Adress, Building_No, Building_Size, Building_cond);
 
-        PreparedStatement ps=con.prepareStatement
-                  ("insert into Buildinginfo values(?,?,?,?,?)");
-
-        ps.setString(1, Building_Name);
-        
-        ps.setString(2, Building_Adress);
-        ps.setString(3, Building_No);
-        ps.setString(4, Building_Size);
-        ps.setString(5, Building_cond);
-        int i=ps.executeUpdate();
-        
-          if(i>0)
-          {
-            out.println("You are sucessfully registered");
-          }
-        
-        }
-        catch(Exception se)
-        {
-            se.printStackTrace();
-        }
+        } catch (SQLException ex) {
+            Logger.getLogger(BuildingAdd.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(BuildingAdd.class.getName()).log(Level.SEVERE, null, ex);
+        } 
 
     }
 

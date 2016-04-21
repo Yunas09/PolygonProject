@@ -5,6 +5,7 @@
  */
 package Servlet;
 
+import DM.BuildingDM;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -12,6 +13,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+import javax.resource.spi.Connector;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +44,7 @@ public class BuildingSearch extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet BuildingSearch</title>");            
+            out.println("<title>Servlet BuildingSearch</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet BuildingSearch at " + request.getContextPath() + "</h1>");
@@ -76,53 +79,30 @@ public class BuildingSearch extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
+//        processRequest(request, response);
         PrintWriter out = response.getWriter();
-        Connection conn = null;
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "polygon1";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "Yunasyunas09";
- 
+
         Statement st;
         try {
-            Class.forName(driver).newInstance();
-            conn = DriverManager.getConnection(url + dbName, userName, password);
-            System.out.println("Connected!");
-            String pid = request.getParameter("pid");
- 
-            ArrayList al = null;
-            ArrayList InfoSearch = new ArrayList();
-            String query = "select * from buildinginfo where Building_No='" + pid + "' ";
- 
-            System.out.println("query " + query);
-            st = conn.createStatement();
-            ResultSet rs = st.executeQuery(query);
- 
-            while (rs.next()) {
-                al = new ArrayList();
- 
 
-                al.add(rs.getString(1));
-                al.add(rs.getString(2));
-                al.add(rs.getString(3));
-                al.add(rs.getString(4));
-                al.add(rs.getString(5));
-                System.out.println("al :: " + al);
-                InfoSearch.add(al);
-            }
- 
+            String pid = request.getParameter("pid");
+            BuildingDM BUIDM = new BuildingDM();
+            ArrayList<String> InfoSearch = BUIDM.SearchBuilding(pid);
+
+//            String s = "";
+//            for(String str : InfoSearch){
+//                s += str + " -#- ";
+//            }
             request.setAttribute("piList", InfoSearch);
+
             RequestDispatcher view = request.getRequestDispatcher("Bui_Search.jsp");
             view.forward(request, response);
-            conn.close();
+
             System.out.println("Disconnected!");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
 
     /**
      * Returns a short description of the servlet.
@@ -135,3 +115,9 @@ public class BuildingSearch extends HttpServlet {
     }// </editor-fold>
 
 }
+
+//
+// if (request.getAttribute("piList") != null) {
+//                    ArrayList al = (ArrayList) request.getAttribute("piList");
+//                    System.out.println(al);
+//                    

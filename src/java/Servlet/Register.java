@@ -5,11 +5,16 @@
  */
 package Servlet;
 
+import DM.User;
+import DM.UserDM;
 import com.mysql.jdbc.Connection;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -77,46 +82,21 @@ public class Register extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
          PrintWriter out = response.getWriter();
-	
-        String name = request.getParameter("name");
-        
-        String pass = request.getParameter("pass");
-        
+	String username = request.getParameter("name");
+        String password = request.getParameter("pass");
         String Adress = request.getParameter("Adress");
-        
         String Zip = request.getParameter("Zip");
-        try{
         
-        //loading drivers for mysql
-        Class.forName("com.mysql.jdbc.Driver");
-
-	//creating connection with the database 
-          Connection  con=(Connection) DriverManager.getConnection
-                     ("jdbc:mysql://localhost:3306/polygon1","root","Yunasyunas09");
-
-        PreparedStatement ps=con.prepareStatement
-                  ("insert into logindetails values(?,?,?,?)");
-
-        ps.setString(1, name);
         
-        ps.setString(2, pass);
-        
-        ps.setString(3, Adress);
-        
-        ps.setString(4, Zip);
-        int i=ps.executeUpdate();
-        
-          if(i>0)
-          {
-            out.println("You are sucessfully registered");
-          }
-        
+                
+        try {
+             UserDM regi = new UserDM();
+            regi.register(username, password, Adress, Zip);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
-        catch(Exception se)
-        {
-            se.printStackTrace();
-        }
-	
       }
     
 

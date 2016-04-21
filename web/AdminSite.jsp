@@ -15,21 +15,21 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        
+
         <form action="CreateUser.jsp">
-        <p>Create Customer</p>
+            <p>Create Customer</p>
             <input type="submit" value="Click Here !!" <a href="/CreateUser.jsp">
-                </form>
-        
-      
-        
+        </form>
+
+
+
         <h1>Check Customer</h1>
         <form action="index.jsp">
 
-<input type="submit" value="Click Here!!" <a href="/index.jsp">
-</form>
-        
-        
-        
+            <input type="submit" value="Click Here!!" <a href="/index.jsp">
+        </form>
+
+
+
     </body>
 </html>

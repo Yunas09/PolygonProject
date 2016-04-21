@@ -8,7 +8,10 @@ import java.util.ArrayList;
 import DbUtility.Connector;
 import java.sql.PreparedStatement;
 import DbUtility.Connector;
-
+import static java.lang.System.out;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static sun.java2d.cmm.ColorTransform.Out;
 
 public class UserDM {
 
@@ -28,8 +31,6 @@ public class UserDM {
         }
         return users;
     }
-    
-   
 
     public User getUser(String username) {
         User user = null;
@@ -46,11 +47,12 @@ public class UserDM {
         }
         return user;
     }
+
     public ArrayList<User> Register() {
         ArrayList<User> users1 = new ArrayList<>();
         try {
             Connector c = new Connector();
-            ResultSet res = c.doQuery("SELECT * FROM logindetails");
+            ResultSet res = c.doQuery("insert into logindetails values(?,?,?,?)");
             while (res.next()) {
                 String username1 = res.getString("username1");
                 String password1 = res.getString("password1");
@@ -62,8 +64,8 @@ public class UserDM {
         }
         return users1;
     }
-    
- public ArrayList<User> getAdmin() {
+
+    public ArrayList<User> getAdmin() {
         ArrayList<User> users = new ArrayList<>();
         try {
             Connector c = new Connector();
@@ -79,8 +81,8 @@ public class UserDM {
         }
         return users;
     }
- 
- public User getAdo(String username) {
+
+    public User getAdo(String username) {
         User user = null;
         try {
             Connector c = new Connector();
@@ -95,10 +97,25 @@ public class UserDM {
         }
         return user;
     }
- 
- 
+
+    public void register(String username, String password, String Adress, String Zip) throws ClassNotFoundException, SQLException {
+        
+        try {
+            Connector con = new Connector();
+            
+            String query = "INSERT INTO `polygon1`.`logindetails` (`username`, `password`, `adress`, `Zip`) "
+                    + "VALUES ('"+username+"', '"+password+"', '"+Adress+"', '"+Zip+"');";
+            
+            
+                    
+            con.doUpdate(query);
+
+            
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+       
+    }
 
 }
- 
-
-

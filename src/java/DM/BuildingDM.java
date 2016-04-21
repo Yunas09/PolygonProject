@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import DbUtility.Connector;
-import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -69,14 +69,45 @@ public class BuildingDM {
 
     }
     
+    public void AddBuilding(String Building_Name, String Building_Adress, String Building_No, String Building_Size, String Building_cond) throws SQLException, ClassNotFoundException{
+     
+        
+        Connector con = new Connector();
+
+        String query = "INSERT INTO `polygon1`.`buildinginfo` (`Building_Name`, `Building_Adress`, `Building_No`, `Building_Size`, `Building_cond`) VALUES ('" + Building_Name + "', '" + Building_Adress + "', '" + Building_No + "', '" + Building_Size + "', '" + Building_cond + "');";
+
+        con.doUpdate(query);
+    }
     
+    public ArrayList<String> SearchBuilding( String pid) throws SQLException, ClassNotFoundException
+    {
+        
+        Connector con = new Connector();
+        
+      
+        ArrayList<String> InfoSearch = new ArrayList<String>();
+        
+        String query = "select * from buildinginfo where Building_No='" + pid + "' ";
+
+        System.out.println("query " + query);
+        
+        ResultSet rs = con.doQuery(query);
+
+        while (rs.next()) {
+            
+
+            InfoSearch.add(rs.getString(1));
+            InfoSearch.add(rs.getString(2));
+            InfoSearch.add(rs.getString(3));
+            InfoSearch.add(rs.getString(4));
+            InfoSearch.add(rs.getString(5));
+            System.out.println("al :: " + InfoSearch);
+           
+            }
+       return InfoSearch;
+    }
     
-    
-    
-    
-    
-    
-    
+ 
 }
 
     
